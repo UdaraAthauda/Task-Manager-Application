@@ -11,7 +11,11 @@ A Task Manager application built with Django that allows users to efficiently ma
 
 👤 Profile Management – Update and customize your profile.
 
+
 🛠 Tech Stack:
+
 Backend: Django
+
 Frontend: HTML, CSS, Bootstrap
+
 Database: SQLite (can be switched to PostgreSQL/MySQL)
