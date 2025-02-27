@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://bootswatch.com/5/solar/bootstrap.min.css">
+    <title>Dashboard</title>
+</head>
+
+<!-- Navigation bar -->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-center">
+
+    <a class="navbar-brand main-heading ms-5"> 
+            
+      &nbsp; <a href="{% url 'dashboard' %}" class="text-decoration-none fw-bold h4">Task Manager</a>
+    
+    </a>
+
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+
+    </button>
+
+
+      <div class="collapse navbar-collapse text-center" id="navbarNavDropdown">
+
+        
+        <ul class="navbar-nav ms-auto">
+
+
+          &nbsp;     &nbsp;     &nbsp; 
+
+
+          <li class="nav-item">
+      
+            <a class="btn btn-primary navbar-btn" type="button" href="{% url 'createTask' %}">Create Task</a>
+
+          </li>
+
+          &nbsp;     &nbsp;     &nbsp; 
+
+
+          <li class="nav-item">
+      
+            <a class="btn btn-primary navbar-btn" type="button" href="{% url 'updateUser' %}">User Profile</a>
+
+          </li>
+
+
+          &nbsp;     &nbsp;     &nbsp; 
+          
+
+          <li class="nav-item">
+
+            <a class="btn btn-outline-danger navbar-btn" type="button" href="{% url 'logout' %}">Logout</a>
+
+          </li>
+
+
+          &nbsp;     &nbsp;     &nbsp; 
+          
+
+        </ul>
+      
+        
+      </div>
+
+
+</nav>
+
+<!-- Navigation bar END -->
+
+<body>
+    <div class="text-center mt-5">
+        <h1>Dashboard of the Task Manager</h1>
+    </div>
+
+    <div class="container mt-3">
+      <table class="table text-center table-bordered border-primary">
+          <thead>
+              <tr>
+                  <th>id</th>
+                  <th>title</th>
+                  <th>content</th>
+                  <th>Date</th>
+                  <th>status</th>
+              </tr>
+          </thead>
+          
+          {% for task in tasks %}
+
+          <tbody>
+              <tr>
+                  <td>{{task.id}}</td>
+                  <td>{{task.title}}</td>
+                  <td>{{task.content}}</td>
+                  <td>{{task.postDate}}</td>
+                  <td><a href="{% url 'updateTask' task.id %}" class="btn btn-info btn-sm">update</a> <a href="{% url 'deleteTask' task.id %}" class="btn btn-danger btn-sm">delete</a></td>
+              </tr>
+          </tbody>
+              
+          {% endfor %}
+      </table>
+  </div>
+    
+</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"  crossorigin="anonymous"></script>
+
+
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+
+integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+
+crossorigin="anonymous">
+
+</script>
+
+</html>
